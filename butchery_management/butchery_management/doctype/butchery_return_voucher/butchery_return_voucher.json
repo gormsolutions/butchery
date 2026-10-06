@@ -1,0 +1,270 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-09-30 22:01:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "company",
+  "posting_date",
+  "posting_time",
+  "status",
+  "column_break_hdr",
+  "customer",
+  "delivery_note",
+  "driver_rider",
+  "vehicle_no",
+  "return_warehouse",
+  "item_section",
+  "item_code",
+  "batch_no",
+  "item_valuation_rate",
+  "column_break_weights",
+  "dispatched_weight",
+  "customer_rejected_weight",
+  "actual_store_received_weight",
+  "variance_section",
+  "return_transit_loss",
+  "loss_pct",
+  "column_break_loss",
+  "loss_amount",
+  "return_loss_account",
+  "reference_section",
+  "stock_entry"
+ ],
+ "fields": [
+  {
+   "default": "BRV-RET-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "BRV-RET-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nSubmitted\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hdr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "delivery_note",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Original Delivery Note",
+   "options": "Delivery Note"
+  },
+  {
+   "fieldname": "driver_rider",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Driver / Dispatcher"
+  },
+  {
+   "fieldname": "vehicle_no",
+   "fieldtype": "Data",
+   "label": "Vehicle No"
+  },
+  {
+   "fieldname": "return_warehouse",
+   "fieldtype": "Link",
+   "label": "Receiving Return Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_section",
+   "fieldtype": "Section Break",
+   "label": "Rejected Item & Weight Reconciliation"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "label": "Batch No",
+   "options": "Batch"
+  },
+  {
+   "fieldname": "item_valuation_rate",
+   "fieldtype": "Currency",
+   "label": "Valuation Rate / kg",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_weights",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Originally dispatched weight (kg)",
+   "fieldname": "dispatched_weight",
+   "fieldtype": "Float",
+   "label": "Dispatched Weight (kg)"
+  },
+  {
+   "description": "Weight customer stated as rejected (e.g. 10kg)",
+   "fieldname": "customer_rejected_weight",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Customer Rejected Weight (kg)",
+   "reqd": 1
+  },
+  {
+   "description": "Actual physical weight weighed at outlet dock upon return (e.g. 9kg)",
+   "fieldname": "actual_store_received_weight",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Actual Store Received Weight (kg)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "variance_section",
+   "fieldtype": "Section Break",
+   "label": "Return Transit Shortage Metrics"
+  },
+  {
+   "description": "Weight lost during return transit (Customer Rejected - Actual Store Received)",
+   "fieldname": "return_transit_loss",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Return Transit Loss (kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "loss_pct",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Transit Loss %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_loss",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "loss_amount",
+   "fieldtype": "Currency",
+   "label": "Loss Financial Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "return_loss_account",
+   "fieldtype": "Link",
+   "label": "Return Transit Loss Expense Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "reference_section",
+   "fieldtype": "Section Break",
+   "label": "Stock Entry Reference"
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "Linked ERPNext Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-30 22:01:00.000000",
+ "modified_by": "Administrator",
+ "module": "Butchery Management",
+ "name": "Butchery Return Voucher",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

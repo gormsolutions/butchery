@@ -1,0 +1,285 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-09-30 21:59:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "company",
+  "posting_date",
+  "posting_time",
+  "status",
+  "column_break_hdr",
+  "warehouse",
+  "source_section",
+  "source_item",
+  "source_batch_no",
+  "available_qty",
+  "column_break_source",
+  "convert_qty",
+  "source_valuation_rate",
+  "source_total_cost",
+  "target_section",
+  "target_item",
+  "target_qty",
+  "column_break_target",
+  "target_batch_no",
+  "target_valuation_rate",
+  "loss_section",
+  "conversion_loss",
+  "conversion_loss_pct",
+  "column_break_loss",
+  "loss_treatment",
+  "processing_loss_account",
+  "reference_section",
+  "stock_entry"
+ ],
+ "fields": [
+  {
+   "default": "MCV-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "MCV-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nSubmitted\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hdr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Warehouse where conversion takes place",
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_section",
+   "fieldtype": "Section Break",
+   "label": "Source Meat Cut (Depletion)"
+  },
+  {
+   "description": "Item to be converted (e.g. Boneless Beef)",
+   "fieldname": "source_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Source Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_batch_no",
+   "fieldtype": "Data",
+   "label": "Source Batch No"
+  },
+  {
+   "fieldname": "available_qty",
+   "fieldtype": "Float",
+   "label": "Current Available Qty (kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_source",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Weight taken from source cut (kg)",
+   "fieldname": "convert_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty to Convert (kg)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_valuation_rate",
+   "fieldtype": "Currency",
+   "label": "Source Valuation Rate / kg",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_total_cost",
+   "fieldtype": "Currency",
+   "label": "Source Total Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "target_section",
+   "fieldtype": "Section Break",
+   "label": "Target Product (Production)"
+  },
+  {
+   "description": "Destination item produced (e.g. Minced Beef, Stewing Pack)",
+   "fieldname": "target_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Target Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "description": "Scale reading of finished product (kg)",
+   "fieldname": "target_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Actual Target Qty (kg)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_target",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "target_batch_no",
+   "fieldtype": "Data",
+   "label": "Target Batch No"
+  },
+  {
+   "fieldname": "target_valuation_rate",
+   "fieldtype": "Currency",
+   "label": "Target Unit Valuation Rate / kg",
+   "read_only": 1
+  },
+  {
+   "fieldname": "loss_section",
+   "fieldtype": "Section Break",
+   "label": "Processing Loss & Cost Allocation"
+  },
+  {
+   "description": "Grinder / Cutting residue loss",
+   "fieldname": "conversion_loss",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Conversion Loss (kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "conversion_loss_pct",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Conversion Loss %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_loss",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Absorb into Target Product Cost",
+   "fieldname": "loss_treatment",
+   "fieldtype": "Select",
+   "label": "Loss Treatment",
+   "options": "Absorb into Target Product Cost\nBook to Processing Loss Account",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.loss_treatment == 'Book to Processing Loss Account'",
+   "fieldname": "processing_loss_account",
+   "fieldtype": "Link",
+   "label": "Processing Loss Expense Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "reference_section",
+   "fieldtype": "Section Break",
+   "label": "Stock Entry Reference"
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "Linked ERPNext Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-30 21:59:00.000000",
+ "modified_by": "Administrator",
+ "module": "Butchery Management",
+ "name": "Meat Conversion",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

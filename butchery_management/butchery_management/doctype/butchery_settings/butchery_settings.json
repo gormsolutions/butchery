@@ -1,0 +1,128 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-09-30 21:50:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_section",
+  "default_company",
+  "default_receiving_warehouse",
+  "default_cutting_warehouse",
+  "column_break_general",
+  "max_allowable_transit_loss_pct",
+  "max_allowable_cutting_loss_pct",
+  "auto_create_child_batches",
+  "accounts_section",
+  "default_transit_shrinkage_account",
+  "default_cutting_loss_account",
+  "column_break_accounts",
+  "default_processing_loss_account",
+  "default_return_loss_account"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_section",
+   "fieldtype": "Section Break",
+   "label": "General Defaults"
+  },
+  {
+   "fieldname": "default_company",
+   "fieldtype": "Link",
+   "label": "Default Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_receiving_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Receiving Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "default_cutting_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Cutting / Display Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "column_break_general",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "2.0",
+   "description": "Transit losses exceeding this % will trigger supervisor review alert",
+   "fieldname": "max_allowable_transit_loss_pct",
+   "fieldtype": "Percent",
+   "label": "Max Allowable Transit Loss %"
+  },
+  {
+   "default": "3.0",
+   "description": "Cutting losses exceeding this % during carcass breakdown will be flagged",
+   "fieldname": "max_allowable_cutting_loss_pct",
+   "fieldtype": "Percent",
+   "label": "Max Allowable Cutting Loss %"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_create_child_batches",
+   "fieldtype": "Check",
+   "label": "Auto-Create Child Batches with Parent Batch Prefix"
+  },
+  {
+   "fieldname": "accounts_section",
+   "fieldtype": "Section Break",
+   "label": "Default Expense & Shrinkage Accounts"
+  },
+  {
+   "fieldname": "default_transit_shrinkage_account",
+   "fieldtype": "Link",
+   "label": "Inbound Transit Shrinkage Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "default_cutting_loss_account",
+   "fieldtype": "Link",
+   "label": "Carcass Cutting Loss Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "column_break_accounts",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_processing_loss_account",
+   "fieldtype": "Link",
+   "label": "Internal Conversion Loss Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "default_return_loss_account",
+   "fieldtype": "Link",
+   "label": "Customer Return Transit Loss Account",
+   "options": "Account"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-09-30 21:50:00.000000",
+ "modified_by": "Administrator",
+ "module": "Butchery Management",
+ "name": "Butchery Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

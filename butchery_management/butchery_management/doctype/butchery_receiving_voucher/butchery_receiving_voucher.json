@@ -1,0 +1,323 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-09-30 21:55:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "company",
+  "posting_date",
+  "posting_time",
+  "status",
+  "column_break_logistics",
+  "supplier",
+  "supplier_invoice_no",
+  "supplier_invoice_date",
+  "dispatcher_name",
+  "vehicle_no",
+  "receiving_outlet",
+  "item_section",
+  "carcass_item",
+  "number_of_carcasses",
+  "column_break_item",
+  "batch_no",
+  "weights_section",
+  "invoiced_weight",
+  "invoiced_rate_per_kg",
+  "invoiced_amount",
+  "column_break_weights",
+  "received_weight",
+  "weight_variance",
+  "variance_pct",
+  "variance_amount",
+  "accounting_section",
+  "shortage_treatment",
+  "effective_valuation_rate",
+  "column_break_acct",
+  "shrinkage_expense_account",
+  "stock_reference_section",
+  "stock_entry",
+  "purchase_receipt"
+ ],
+ "fields": [
+  {
+   "default": "BRV-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "BRV-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nSubmitted\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_logistics",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Supplier (Abattoir)",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "supplier_invoice_no",
+   "fieldtype": "Data",
+   "label": "Supplier Invoice / Waybill No"
+  },
+  {
+   "fieldname": "supplier_invoice_date",
+   "fieldtype": "Date",
+   "label": "Supplier Invoice Date"
+  },
+  {
+   "fieldname": "dispatcher_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Dispatcher / Rider Name"
+  },
+  {
+   "fieldname": "vehicle_no",
+   "fieldtype": "Data",
+   "label": "Vehicle / Van No"
+  },
+  {
+   "fieldname": "receiving_outlet",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Receiving Outlet (Warehouse)",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_section",
+   "fieldtype": "Section Break",
+   "label": "Carcass Specification"
+  },
+  {
+   "fieldname": "carcass_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Carcass Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "number_of_carcasses",
+   "fieldtype": "Int",
+   "label": "Number of Heads / Carcasses",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_item",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Unique tag/batch identifier for this cow / receiving event",
+   "fieldname": "batch_no",
+   "fieldtype": "Data",
+   "label": "Animal / Carcass Batch No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "weights_section",
+   "fieldtype": "Section Break",
+   "label": "Weight Reconciliation & Transit Variance"
+  },
+  {
+   "description": "Weight billed on supplier invoice (kg)",
+   "fieldname": "invoiced_weight",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Supplier Invoiced Weight (kg)",
+   "reqd": 1
+  },
+  {
+   "description": "Agreed price per kg on supplier invoice",
+   "fieldname": "invoiced_rate_per_kg",
+   "fieldtype": "Currency",
+   "label": "Invoiced Rate / kg",
+   "reqd": 1
+  },
+  {
+   "fieldname": "invoiced_amount",
+   "fieldtype": "Currency",
+   "label": "Total Invoiced Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_weights",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Actual scale weight measured upon arrival at outlet dock (kg)",
+   "fieldname": "received_weight",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Actual Received Weight (kg)",
+   "reqd": 1
+  },
+  {
+   "description": "Invoiced Weight - Received Weight",
+   "fieldname": "weight_variance",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Transit Loss / Shortage (kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "variance_pct",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Shortage %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "variance_amount",
+   "fieldtype": "Currency",
+   "label": "Shortage Financial Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "accounting_section",
+   "fieldtype": "Section Break",
+   "label": "Valuation & Accounting Treatment"
+  },
+  {
+   "default": "Absorb in Valuation (Capitalize Loss)",
+   "fieldname": "shortage_treatment",
+   "fieldtype": "Select",
+   "label": "Inbound Shortage Treatment",
+   "options": "Absorb in Valuation (Capitalize Loss)\nBook as Transit Shrinkage Expense\nDeduct from Supplier Bill",
+   "reqd": 1
+  },
+  {
+   "description": "Effective cost per kg that enters ERPNext inventory ledger",
+   "fieldname": "effective_valuation_rate",
+   "fieldtype": "Currency",
+   "label": "Effective Inventory Valuation Rate / kg",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_acct",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.shortage_treatment == 'Book as Transit Shrinkage Expense'",
+   "fieldname": "shrinkage_expense_account",
+   "fieldtype": "Link",
+   "label": "Transit Shrinkage Expense Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "stock_reference_section",
+   "fieldtype": "Section Break",
+   "label": "Ledger Reference"
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "Linked Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "purchase_receipt",
+   "fieldtype": "Link",
+   "label": "Linked Purchase Receipt",
+   "options": "Purchase Receipt",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-30 21:55:00.000000",
+ "modified_by": "Administrator",
+ "module": "Butchery Management",
+ "name": "Butchery Receiving Voucher",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-09-30 21:51:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "item_name",
+  "meat_cut_category",
+  "expected_yield_pct",
+  "standard_selling_price"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Meat Cut Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "columns": 3,
+   "fetch_from": "item_code.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Cut Name",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "default": "Standard Cut",
+   "fieldname": "meat_cut_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Category",
+   "options": "Prime Cut\nStandard Cut\nDirect Product/Offal\nBone/By-product\nWaste/Trim",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "description": "Expected % of carcass weight",
+   "fieldname": "expected_yield_pct",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Expected Yield %"
+  },
+  {
+   "columns": 2,
+   "description": "Selling price per kg used for NRV cost allocation",
+   "fieldname": "standard_selling_price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Standard S.P / kg",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-30 21:51:00.000000",
+ "modified_by": "Administrator",
+ "module": "Butchery Management",
+ "name": "Meat Breakdown Template Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "states": []
+}

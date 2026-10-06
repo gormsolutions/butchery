@@ -1,0 +1,125 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-09-30 21:57:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "item_name",
+  "meat_cut_category",
+  "actual_weight",
+  "expected_yield_pct",
+  "actual_yield_pct",
+  "standard_selling_price",
+  "sales_value",
+  "sales_value_ratio",
+  "allocated_cost",
+  "cost_per_kg",
+  "batch_no"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Cut Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fetch_from": "item_code.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Cut Name",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "meat_cut_category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "Prime Cut\nStandard Cut\nDirect Product/Offal\nBone/By-product\nWaste/Trim"
+  },
+  {
+   "columns": 1,
+   "description": "Scale reading weight (kg)",
+   "fieldname": "actual_weight",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Actual Wt (kg)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expected_yield_pct",
+   "fieldtype": "Percent",
+   "label": "Expected Yield %",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "actual_yield_pct",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Actual Yield %",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "description": "Standard S.P used for NRV cost allocation",
+   "fieldname": "standard_selling_price",
+   "fieldtype": "Currency",
+   "label": "Std Price/kg",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sales_value",
+   "fieldtype": "Currency",
+   "label": "Sales Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sales_value_ratio",
+   "fieldtype": "Percent",
+   "label": "Sales Value Ratio %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "allocated_cost",
+   "fieldtype": "Currency",
+   "label": "Allocated Cost",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "description": "Calculated inventory valuation cost per kg",
+   "fieldname": "cost_per_kg",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Cost/kg",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "batch_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Batch No"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-30 21:57:00.000000",
+ "modified_by": "Administrator",
+ "module": "Butchery Management",
+ "name": "Meat Breakdown Output",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "states": []
+}

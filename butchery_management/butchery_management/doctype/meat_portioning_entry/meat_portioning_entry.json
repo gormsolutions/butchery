@@ -1,0 +1,305 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-09-30 22:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "company",
+  "posting_date",
+  "posting_time",
+  "status",
+  "column_break_hdr",
+  "warehouse",
+  "bulk_section",
+  "bulk_item",
+  "bulk_batch_no",
+  "column_break_bulk",
+  "bulk_weight_used",
+  "bulk_valuation_rate",
+  "bulk_meat_cost",
+  "retail_section",
+  "retail_item",
+  "pack_size_kg",
+  "packs_produced",
+  "column_break_retail",
+  "retail_batch_no",
+  "shelf_life_days",
+  "expiry_date",
+  "barcode",
+  "packaging_section",
+  "packaging_materials",
+  "cost_section",
+  "total_packaging_cost",
+  "total_production_cost",
+  "column_break_cost",
+  "cost_per_pack",
+  "reference_section",
+  "stock_entry"
+ ],
+ "fields": [
+  {
+   "default": "MPE-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "MPE-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nSubmitted\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hdr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bulk_section",
+   "fieldtype": "Section Break",
+   "label": "Bulk Meat Consumed (kg)"
+  },
+  {
+   "description": "Bulk meat item (e.g. Shaki, Minced Beef, Diced Beef in kg)",
+   "fieldname": "bulk_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Bulk Meat Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bulk_batch_no",
+   "fieldtype": "Data",
+   "label": "Bulk Batch No"
+  },
+  {
+   "fieldname": "column_break_bulk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Total weight of bulk meat portioned (kg)",
+   "fieldname": "bulk_weight_used",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Bulk Weight Used (kg)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bulk_valuation_rate",
+   "fieldtype": "Currency",
+   "label": "Bulk Meat Rate / kg",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bulk_meat_cost",
+   "fieldtype": "Currency",
+   "label": "Bulk Meat Total Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "retail_section",
+   "fieldtype": "Section Break",
+   "label": "Retail Pre-Pack Product (Nos / Pack)"
+  },
+  {
+   "description": "Retail item SKU (e.g. Shaki 1kg Pack, Minced Beef 500g Tray)",
+   "fieldname": "retail_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Retail Pre-Pack Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "default": "1.0",
+   "description": "Standard net weight per pack in kg (e.g. 1.0kg, 0.5kg)",
+   "fieldname": "pack_size_kg",
+   "fieldtype": "Float",
+   "label": "Pack Size (kg)",
+   "reqd": 1
+  },
+  {
+   "description": "Count of retail units/packs produced",
+   "fieldname": "packs_produced",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Packs Produced",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_retail",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "retail_batch_no",
+   "fieldtype": "Data",
+   "label": "Retail Batch No"
+  },
+  {
+   "default": "14",
+   "description": "Shelf life in days from production date",
+   "fieldname": "shelf_life_days",
+   "fieldtype": "Int",
+   "label": "Shelf Life (Days)"
+  },
+  {
+   "description": "Calculated Expiry Date",
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expiry Date",
+   "read_only": 1
+  },
+  {
+   "description": "Barcode / EAN for retail scanner / POS",
+   "fieldname": "barcode",
+   "fieldtype": "Data",
+   "label": "Retail Barcode",
+   "read_only": 1
+  },
+  {
+   "fieldname": "packaging_section",
+   "fieldtype": "Section Break",
+   "label": "Packaging Materials Consumed (Trays, Pouches, Labels)"
+  },
+  {
+   "fieldname": "packaging_materials",
+   "fieldtype": "Table",
+   "label": "Packaging Materials",
+   "options": "Portioning Packaging Item"
+  },
+  {
+   "fieldname": "cost_section",
+   "fieldtype": "Section Break",
+   "label": "Valuation & Cost Summary"
+  },
+  {
+   "fieldname": "total_packaging_cost",
+   "fieldtype": "Currency",
+   "label": "Total Packaging Materials Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_production_cost",
+   "fieldtype": "Currency",
+   "label": "Total Production Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_cost",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cost_per_pack",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Unit Valuation Rate / Pack",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reference_section",
+   "fieldtype": "Section Break",
+   "label": "Stock Entry Reference"
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "Linked ERPNext Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-30 22:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Butchery Management",
+ "name": "Meat Portioning Entry",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
